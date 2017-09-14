@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ISE Admin</title>
+</head>
+<body>
+
+<h1>ISE Admin</h1>
+<h4>Add Computers and IP phones </h4>
+
+<br>  switchport mode access
+<br>  authentication event fail action next-method
+<br>  authentication event server dead action authorize
+<br>  authentication event server dead action authorize voice
+<br>  authentication event server alive action reinitialize
+<br>  authentication host-mode multi-auth
+<br>  authentication order dot1x mab  
+<br>  authentication priority dot1x mab
+<br>  authentication port-control auto
+<br>  authentication periodic
+<br>  authentication timer reauthenticate server
+<br>  authentication violation restrict
+<br>  mab
+<br>  dot1x pae authenticator
+<br>  spanning-tree portfast
+<br>  spanning-tree bpduguard enable
+
+<h4>Remove Computer and IP phones</h4>
+<br>  no authentication event fail action next-method 
+<br>    no authentication event server dead action authorize 
+<br>    no authentication event server dead action authorize voice
+<br>    no authentication event server alive action reinitialize
+<br>    no authentication host-mode multi-auth
+<br>    no authentication order dot1x mab 
+<br>   no authentication priority dot1x mab
+<br>    no authentication port-control auto
+<br>    no authentication periodic
+<br>    no authentication timer reauthenticate server
+<br>    no authentication violation restrict
+<br>    no mab
+<br>    no dot1x pae authenticator
+</p>
+
+<h4>Add MAB devices </h4>
+
+<br>  authentication event fail action next-method
+<br>  authentication event server dead action authorize
+<br>  authentication event server alive action reinitialize
+<br>  authentication host-mode multi-auth
+<br>  authentication order mab
+<br>  authentication priority mab
+<br>  authentication port-control auto
+<br>  authentication periodic
+<br>  authentication timer reauthenticate server
+<br>  authentication violation restrict
+<br>  mab
+<br>  dot1x pae authenticator
+<br>  spanning-tree portfast
+<br>  spanning-tree bpduguard enable</p>
+
+<h4>Remove MAB Devices </h4>
+
+<br>  no authentication event fail action next-method
+<br>  no authentication event server dead action authorize
+<br>  no authentication event server alive action reinitialize
+<br>  no authentication host-mode multi-auth
+<br>  no authentication order mab
+<br>  no authentication priority mab
+<br>  no authentication port-control auto
+<br>  no authentication periodic
+<br>  no authentication timer reauthenticate server
+<br>  no authentication violation restrict
+<br>  no mab
+<br>  no dot1x pae authenticator
+
+
+
+
+
+
+</body>
+</html>
