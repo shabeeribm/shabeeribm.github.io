@@ -1,204 +1,171 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shabeer Ibm</title>
+    <title>Shabeer Ibrahim - CTF Player</title>
     <style>
-        .city {
-            float: left;
-            margin: 5px;
-            padding: 15px;
-            max-width: 300px;
-            height: 300px;
-            border: 1px solid black;
-        }
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
         body {
-            background-image: url(grey.png);
-            background-size: 397px 322px;
-            color: #333;
-            -webkit-font-smoothing: antialiased;
-            font-family: "Source Sans Pro", sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
             text-align: center;
         }
-        .content {
-            width: 100%;
-        }
         h1 {
-            font-size: 90px;
-            font-weight: 200;
-            color: #333; /* Match with body text color */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            font-size: 4em; /* Increased from 3em */
+            margin: 0;
         }
-        h4 {
-            font-size: 30px;
-            font-weight: 100;
-            color: #333; /* Match with body text color */
-            margin: 10px 0; /* Adjusted margin */
-            padding: 0; /* Remove default padding */
+        h1 span {
+            color: red;
         }
-        ul {
-            margin-top: 20px;
-            list-style: none; /* Remove bullet points */
-            padding: 0; /* Remove default padding */
+        .typed_active {
+            margin-top: 0.5em;
+            font-size: 2em; /* Increased from 1.5em */
+            min-height: 2em; /* Adjusted to match the new font size */
         }
-        li {
-            display: inline;
-            margin: 10px;
+        .certifications {
+            margin-top: 1em;
+            font-size: 1.5em; /* Increased from 1.2em */
         }
-        a {
-            color: #333;
+        .certifications span {
+            color: red;
+        }
+        .discover-more {
+            margin-top: 1em;
+            font-size: 1.2em; /* Increased from 1em */
+            color: grey;
+        }
+        .discover-more a {
+            color: grey;
             text-decoration: none;
         }
-        a:active {
-            opacity: 0.9;
-        }
-        @media only screen and (-webkit-device-pixel-ratio: 2) {
-            body {
-                background-image: url(grey@2x.png);
-            }
-        }
-        @media only screen and (max-width: 500px) {
-            .content {
-                padding-top: 20px; /* Adjusted padding for smaller screens */
-            }
+        .discover-more a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>Shabeer <font color="red"><b>I</b></font>brahim</h1>
-        <h4 class="typed_active">Cyber Defense Analyst</h4>
-     
-     <h3>  <ul>
-            <li> GPEN <font color="red"><b>|</b></font>  GCFA <font color="red"><b>|</b></font>  Pentest+ <font color="red"><b>|</b></font>  PCNSA <font color="red"><b>|</b></font>  CEH <font color="red"><b>|</b></font>  CCNA <font color="red"><b>|</b></font>  CCNP <font color="red"><b>|</b></font> CyberOps </li></h3>
-        </ul></h3>
-        <h5><a href="https://linktr.ee/shabeeribm" target="_blank">Discover more</a></h5>
-    </div>
+    <div>
+        <h1>Shabeer <span>I</span>brahim</h1>
+        <p class="typed_active"></p>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            (function ($) {
+                'use strict';
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        (function ($) {
-            'use strict';
+                $.fn.shuffleLetters = function (prop) {
+                    var options = $.extend({
+                        "step": 8,
+                        "fps": 25,
+                        "text": "",
+                        "callback": function () {}
+                    }, prop);
 
-            $.fn.shuffleLetters = function (prop) {
-                var options = $.extend({
-                    "step": 8,
-                    "fps": 25,
-                    "text": "",
-                    "callback": function () {}
-                }, prop);
+                    return this.each(function () {
+                        var el = $(this),
+                            str = "";
 
-                return this.each(function () {
-                    var el = $(this),
-                        str = "";
+                        if (el.data('animated')) {
+                            return true;
+                        }
+                        el.data('animated', true);
 
-                    if (el.data('animated')) {
-                        return true;
-                    }
-                    el.data('animated', true);
-
-                    if (options.text) {
-                        str = options.text.split('');
-                    } else {
-                        str = el.text().split('');
-                    }
-
-                    var types = [],
-                        letters = [];
-
-                    for (var i = 0; i < str.length; i++) {
-                        var ch = str[i];
-                        if (ch == " ") {
-                            types[i] = "space";
-                            continue;
-                        } else if (/[a-z]/.test(ch)) {
-                            types[i] = "lowerLetter";
-                        } else if (/[A-Z]/.test(ch)) {
-                            types[i] = "upperLetter";
+                        if (options.text) {
+                            str = options.text.split('');
                         } else {
-                            types[i] = "symbol";
+                            str = el.text().split('');
                         }
-                        letters.push(i);
+
+                        var types = [],
+                            letters = [];
+
+                        for (var i = 0; i < str.length; i++) {
+                            var ch = str[i];
+                            if (ch == " ") {
+                                types[i] = "space";
+                                continue;
+                            } else if (/[a-z]/.test(ch)) {
+                                types[i] = "lowerLetter";
+                            } else if (/[A-Z]/.test(ch)) {
+                                types[i] = "upperLetter";
+                            } else {
+                                types[i] = "symbol";
+                            }
+                            letters.push(i);
+                        }
+
+                        el.html("");
+
+                        (function shuffle(start) {
+                            var i,
+                                len = letters.length,
+                                strCopy = str.slice(0);
+
+                            if (start > len) {
+                                el.data('animated', false);
+                                options.callback(el);
+                                return;
+                            }
+
+                            for (i = Math.max(start, 0); i < len; i++) {
+                                if (i < start + options.step) {
+                                    strCopy[letters[i]] = randomChar(types[letters[i]]);
+                                } else {
+                                    strCopy[letters[i]] = "";
+                                }
+                            }
+
+                            el.text(strCopy.join(""));
+
+                            setTimeout(function () {
+                                shuffle(start + 1);
+                            }, 1000 / options.fps);
+                        })(-options.step);
+                    });
+                };
+
+                function randomChar(type) {
+                    var pool = "";
+                    if (type == "lowerLetter") {
+                        pool = "abcdefghijklmnopqrstuvwxyz0123456789";
+                    } else if (type == "upperLetter") {
+                        pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                    } else if (type == "symbol") {
+                        pool = ",.?/\\(^)![]{}*&^%$#'\"";
                     }
 
-                    el.html("");
-
-                    (function shuffle(start) {
-                        var i,
-                            len = letters.length,
-                            strCopy = str.slice(0);
-
-                        if (start > len) {
-                            
-el.data
-('animated', false);
-                            options.callback(el);
-                            return;
-                        }
-
-                        for (i = Math.max(start, 0); i < len; i++) {
-                            if (i < start + options.step) {
-                                strCopy[letters[i]] = randomChar(types[letters[i]]);
-                            } else {
-                                strCopy[letters[i]] = "";
-                            }
-                        }
-
-                        el.text(strCopy.join(""));
-
-                        setTimeout(function () {
-                            shuffle(start + 1);
-                        }, 1000 / options.fps);
-                    })(-options.step);
-                });
-            };
-
-            function randomChar(type) {
-                var pool = "";
-                if (type == "lowerLetter") {
-                    pool = "abcdefghijklmnopqrstuvwxyz0123456789";
-                } else if (type == "upperLetter") {
-                    pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                } else if (type == "symbol") {
-                    pool = ",.?/\\(^)![]{}*&^%$#'\"";
+                    var arr = pool.split('');
+                    return arr[Math.floor(Math.random() * arr.length)];
                 }
 
-                var arr = pool.split('');
-                return arr[Math.floor(Math.random() * arr.length)];
-            }
+                var container = $(".typed_active");
 
-            var container = $(".typed_active");
+                container.shuffleLetters();
 
-            container.shuffleLetters();
+                function shuffle(text) {
+                    container.shuffleLetters({
+                        text: text
+                    });
+                }
 
-            function shuffle(text) {
-                container.shuffleLetters({
-                    text: text
-                });
-            }
-
-            var arr = ['Cyber Security Analyst', 'DFIR Analyst', 'Cyber Defense Analyst', 'CTF Player', 'SOC Analyst'];
-            var i = 0;
-            if ($(".typed_active").length) {
-                setInterval(function () {
-                    shuffle(arr[i++ % arr.length]);
-                }, 4000);
-            }
-        })(jQuery);
-        h4.typed_active {
-    width: 300px; /* Adjust the width as needed */
-    overflow: hidden; /* Hide any overflow text */
-}
-
-    </script>
+                var arr = ['Cyber Security Analyst', 'DFIR Analyst', 'Cyber Defense Analyst', 'CTF Player', 'SOC Analyst'];
+                var i = 0;
+                if ($(".typed_active").length) {
+                    setInterval(function () {
+                        shuffle(arr[i++ % arr.length]);
+                    }, 4000);
+                }
+            })(jQuery);
+        </script>
+        <p class="certifications">
+            GPEN <span>|</span> GCFA <span>|</span> Pentest+ <span>|</span> PCNSA <span>|</span> CEH <span>|</span> CCNA <span>|</span> CCNP <span>|</span> CyberOps
+        </p>
+        <p class="discover-more"><a href="https://linktr.ee/shabeeribm" target="_blank">Connect with Me</a></p>
+    </div>
 </body>
 </html>
