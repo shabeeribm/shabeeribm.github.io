@@ -12,7 +12,7 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: white;
+            background-color:white;
             color: black;
             text-align: center;
         }
@@ -33,19 +33,57 @@
             font-size: 1.5em; /* Increased from 1.2em */
         }
         .certifications span {
-            color: red;
+            color: red; /* Default color for spans */
+        }
+        .certifications span.blue {
+            color: blue; /* Blue color for specific spans */
+        }
+        .certifications span.separator {
+            color: grey; /* Grey color for separators */
         }
         .discover-more {
             margin-top: 1em;
-            font-size: 1.2em; /* Increased from 1em */
-            color: grey;
         }
-        .discover-more a {
-            color: grey;
+        .button-container {
+            display: inline-block;
+        }
+        .styled-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-align: center;
             text-decoration: none;
+            border-radius: 25px; /* Increased border-radius for a smoother look */
+            color: #ffffff;
+            background: linear-gradient(45deg, #FF4C4C, #1E90FF);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
-        .discover-more a:hover {
-            text-decoration: underline;
+        .styled-button:hover {
+            transform: scale(1.05); /* Slightly scale up on hover for a subtle effect */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .styled-button span {
+            position: relative; /* Ensure text shadow behaves correctly */
+            z-index: 1; /* Ensure text appears above gradient */
+        }
+        .styled-button::before {
+            content: ''; /* Pseudo-element for creating gradient overlay */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(45deg, #FF4C4C, #1E90FF);
+            z-index: 0;
+            transition: opacity 0.2s ease-in-out;
+            opacity: 0; /* Initially transparent */
+        }
+        .styled-button:hover::before {
+            opacity: 1; /* Fade in overlay on hover */
         }
     </style>
 </head>
@@ -163,9 +201,17 @@
             })(jQuery);
         </script>
         <p class="certifications">
-            GPEN <span>|</span> GCFA <span>|</span> Pentest+ <span>|</span> PCNSA <span>|</span> CEH <span>|</span> CCNA <span>|</span> CCNP <span>|</span> CyberOps
+            <span class="red">GPEN</span> <span class="blue">|</span> <span class="blue">GCFA</span> <span class="blue">|</span> <span class="red">Pentest+</span> <span class="blue">|</span> <span class="blue">PCNSA</span> <span class="blue">|</span> <span class="red">CEH</span> <span class="blue">|</span> <span class="blue">CCNA</span> <span class="red">|</span> <span class="blue">CCNP</span> <span class="red">|</span> <span class="blue">CyberOps</span>
         </p>
-        <p class="discover-more"><a href="https://linktr.ee/shabeeribm" target="_blank">Connect with Me</a></p>
+        <p class="discover-more">
+            <div class="button-container">
+                <a href="
+https://linktr.ee/shabeeribm
+" target="_blank" class="styled-button">
+                    <span>Connect with Me</span>
+                </a>
+            </div>
+        </p>
     </div>
 </body>
 </html>
